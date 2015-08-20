@@ -14,6 +14,10 @@
 		892256C51B85AE1200BB7C5A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 892256C41B85AE1200BB7C5A /* Images.xcassets */; };
 		892256C81B85AE1200BB7C5A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 892256C61B85AE1200BB7C5A /* LaunchScreen.xib */; };
 		892256D41B85AE1200BB7C5A /* WDProgressionImageLoaderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 892256D31B85AE1200BB7C5A /* WDProgressionImageLoaderTests.m */; };
+		89407A061B85B04B00F64A07 /* ImageUtil.c in Sources */ = {isa = PBXBuildFile; fileRef = 89407A041B85B04B00F64A07 /* ImageUtil.c */; };
+		89407A091B85B5B200F64A07 /* PG_sample01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 89407A081B85B5B200F64A07 /* PG_sample01.jpg */; };
+		89407A0B1B85B90500F64A07 /* PG_sample02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 89407A0A1B85B90500F64A07 /* PG_sample02.jpg */; };
+		89407A0F1B85BBF300F64A07 /* PG_sample03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 89407A0E1B85BBF300F64A07 /* PG_sample03.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +44,11 @@
 		892256CD1B85AE1200BB7C5A /* WDProgressionImageLoaderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WDProgressionImageLoaderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		892256D21B85AE1200BB7C5A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		892256D31B85AE1200BB7C5A /* WDProgressionImageLoaderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WDProgressionImageLoaderTests.m; sourceTree = "<group>"; };
+		89407A041B85B04B00F64A07 /* ImageUtil.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = ImageUtil.c; sourceTree = "<group>"; };
+		89407A051B85B04B00F64A07 /* ImageUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageUtil.h; sourceTree = "<group>"; };
+		89407A081B85B5B200F64A07 /* PG_sample01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PG_sample01.jpg; sourceTree = "<group>"; };
+		89407A0A1B85B90500F64A07 /* PG_sample02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PG_sample02.jpg; sourceTree = "<group>"; };
+		89407A0E1B85BBF300F64A07 /* PG_sample03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PG_sample03.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +72,7 @@
 		892256AB1B85AE1200BB7C5A = {
 			isa = PBXGroup;
 			children = (
+				89407A071B85B5A800F64A07 /* Images */,
 				892256DD1B85AE2500BB7C5A /* SRC */,
 				892256B61B85AE1200BB7C5A /* WDProgressionImageLoader */,
 				892256D01B85AE1200BB7C5A /* WDProgressionImageLoaderTests */,
@@ -123,8 +133,20 @@
 		892256DD1B85AE2500BB7C5A /* SRC */ = {
 			isa = PBXGroup;
 			children = (
+				89407A041B85B04B00F64A07 /* ImageUtil.c */,
+				89407A051B85B04B00F64A07 /* ImageUtil.h */,
 			);
 			path = SRC;
+			sourceTree = "<group>";
+		};
+		89407A071B85B5A800F64A07 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				89407A081B85B5B200F64A07 /* PG_sample01.jpg */,
+				89407A0A1B85B90500F64A07 /* PG_sample02.jpg */,
+				89407A0E1B85BBF300F64A07 /* PG_sample03.jpg */,
+			);
+			name = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,8 +230,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				892256C31B85AE1200BB7C5A /* Main.storyboard in Resources */,
+				89407A0B1B85B90500F64A07 /* PG_sample02.jpg in Resources */,
+				89407A091B85B5B200F64A07 /* PG_sample01.jpg in Resources */,
 				892256C81B85AE1200BB7C5A /* LaunchScreen.xib in Resources */,
 				892256C51B85AE1200BB7C5A /* Images.xcassets in Resources */,
+				89407A0F1B85BBF300F64A07 /* PG_sample03.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -228,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				892256C01B85AE1200BB7C5A /* ViewController.m in Sources */,
+				89407A061B85B04B00F64A07 /* ImageUtil.c in Sources */,
 				892256BD1B85AE1200BB7C5A /* AppDelegate.m in Sources */,
 				892256BA1B85AE1200BB7C5A /* main.m in Sources */,
 			);
@@ -422,6 +448,7 @@
 				892256D91B85AE1200BB7C5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		892256DA1B85AE1200BB7C5A /* Build configuration list for PBXNativeTarget "WDProgressionImageLoaderTests" */ = {
 			isa = XCConfigurationList;
@@ -430,6 +457,7 @@
 				892256DC1B85AE1200BB7C5A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

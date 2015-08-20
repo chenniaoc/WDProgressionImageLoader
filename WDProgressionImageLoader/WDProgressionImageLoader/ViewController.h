@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "ImageUtil.h"
+
+#define TEST_JPEG_PROGRESSIVE_URL @"";
+
 @interface ViewController : UIViewController
 
 
