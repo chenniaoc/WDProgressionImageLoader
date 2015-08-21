@@ -19,6 +19,7 @@
     
     
     NSBundle *mainBundle = [NSBundle mainBundle];
+    NSData *data;
     int counter = 1;
     while (YES) {
         NSString *fileName = [NSString stringWithFormat:@"PG_sample%02d", counter];
@@ -26,8 +27,7 @@
         if (!fileURL) {
             break;
         }
-        
-        NSData *data = [NSData dataWithContentsOfURL:fileURL];
+        data = [NSData dataWithContentsOfURL:fileURL];
         
         WDPJpegType type = WDP_detectJpegType((char *)data.bytes, data.length);
         
@@ -35,6 +35,32 @@
         NSLog(@"file:%@'type is %d", fileName , type);
         
         counter++;
+    }
+    
+    
+    CFMutableDataRef tempData = CFDataCreateMutable(CFAllocatorGetDefault(), 1024*1024);
+    
+    NSUInteger consumeChunk = 1;
+    NSUInteger fileSize = data.length;
+    
+    Ptr tempDataPtr = NULL;
+    Ptr baseDataPtr = (Ptr)data.bytes;
+    
+    NSUInteger loopCounter = 0;
+    
+    while (true) {
+        tempDataPtr = (baseDataPtr + consumeChunk * loopCounter);
+        CFDataAppendBytes(tempData, (void *)tempDataPtr, consumeChunk);
+        
+        loopCounter++;
+        long fileDiff = consumeChunk * loopCounter - fileSize;
+        if (fileDiff >= 0) {
+            
+            tempDataPtr = baseDataPtr + consumeChunk * (loopCounter - 1) + fileDiff;
+            CFDataAppendBytes(tempData, (void *)tempDataPtr, fileDiff);
+            break;
+        }
+
     }
 }
 
