@@ -14,6 +14,8 @@
 
 @interface ViewController : UIViewController
 
+@property(nonatomic, assign) IBOutlet UIImageView *pgImageView;
+
 
 @end
 
