@@ -22,6 +22,7 @@
     NSBundle *mainBundle = [NSBundle mainBundle];
     NSData *data;
     NSData *testImageData;
+
     int counter = 1;
     while (YES) {
         NSString *fileName = [NSString stringWithFormat:@"PG_sample%02d", counter];
@@ -45,6 +46,9 @@
     }
     
     
+    __block float progress = 0.0;
+    NSArray *thresholders = @[@0.001,@0.01,@0.1,@0.2,@0.3,@0.4,@0.5,@0.6,@0.7,@0.8,@0.9];
+    __block NSInteger currentThresHolder = 0;
     dispatch_async(dispatch_queue_create("aaa", DISPATCH_QUEUE_SERIAL), ^{
         CFMutableDataRef tempData = CFDataCreateMutable(CFAllocatorGetDefault(), 1024*1024);
         
@@ -60,6 +64,7 @@
         CGImageSourceRef imgSrcRef = CGImageSourceCreateIncremental(NULL);
         
         NSUInteger imageIndex = 0;
+        NSUInteger totalLength = data.length;
         while (true) {
             
             long fileDiff = consumeChunk * loopCounter - fileSize;
@@ -69,27 +74,39 @@
                 
                 CGImageRef partialImage = CGImageSourceCreateImageAtIndex(imgSrcRef, 0, NULL);
                 
-                _pgImageView.layer.contents = (__bridge id)((void *) partialImage);
+//                 _pgImageView.image = [UIImage imageWithCGImage:partialImage];
                 
-                
+                dispatch_sync(dispatch_get_main_queue(), ^{
+                    _pgImageView.image = [UIImage imageWithCGImage:partialImage];
+                });
                 break;
             }
             
             
-            sleep(0.3);
-            
             CGImageSourceUpdateData(imgSrcRef, tempData, NO);
             
-            CGImageRef partialImage = CGImageSourceCreateImageAtIndex(imgSrcRef, 0, NULL);
-            if (partialImage) {
-                
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                     _pgImageView.layer.contents =  (__bridge_transfer id)(partialImage);
-                });
-                imageIndex++;
-            }
+//            progress = tempData.
+            CFIndex tempLength = CFDataGetLength(tempData);
+            progress = tempLength / (totalLength * 1.0);
             
-            CGImageRelease(partialImage);
+            
+            if (currentThresHolder < thresholders.count && progress > [thresholders[currentThresHolder] floatValue]) {
+                
+                CGImageRef partialImage = CGImageSourceCreateImageAtIndex(imgSrcRef, 0, NULL);
+                if (partialImage) {
+                    dispatch_sync(dispatch_get_main_queue(), ^{
+                        _pgImageView.image = [UIImage imageWithCGImage:partialImage];
+                    });
+                    imageIndex++;
+                    sleep(1.0);
+                }
+                
+                CGImageRelease(partialImage);
+                currentThresHolder++;
+                
+
+                
+            }
             
             tempDataPtr = (baseDataPtr + consumeChunk * loopCounter);
             CFDataAppendBytes(tempData, (void *)tempDataPtr, consumeChunk);
