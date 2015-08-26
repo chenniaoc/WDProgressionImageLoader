@@ -25,6 +25,11 @@ typedef enum _WDPJpegType{
 
 
 
-
 WDPJpegType
 WDP_detectJpegType(char * jpegBytes, size_t fileSize);
+
+
+void
+WDP_decodeProgressiveJpeg(char *jpegBytes);
+
+

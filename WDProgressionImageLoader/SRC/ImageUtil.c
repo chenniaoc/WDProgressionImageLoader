@@ -9,6 +9,8 @@
 
 #include "ImageUtil.h"
 
+#include "jpeglib.h"
+
 
 WDPJpegType
 WDP_detectJpegType(char * jpegBytes, size_t fileSize)
@@ -45,3 +47,20 @@ WDP_detectJpegType(char * jpegBytes, size_t fileSize)
     
     return WDPJpegTypeUnknow;
 }
+
+
+
+
+void
+WDP_decodeProgressiveJpeg(char *jpegBytes)
+{
+    struct jpeg_decompress_struct cinfo;
+    struct jpeg_error_mgr jerr;
+    
+    cinfo.err = jpeg_std_error(&jerr);
+    jpeg_create_decompress(&cinfo);
+    
+}
+
+
+

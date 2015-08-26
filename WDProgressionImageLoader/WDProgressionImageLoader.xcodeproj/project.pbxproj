@@ -18,6 +18,7 @@
 		89407A091B85B5B200F64A07 /* PG_sample01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 89407A081B85B5B200F64A07 /* PG_sample01.jpg */; };
 		89407A0B1B85B90500F64A07 /* PG_sample02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 89407A0A1B85B90500F64A07 /* PG_sample02.jpg */; };
 		89407A0F1B85BBF300F64A07 /* PG_sample03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 89407A0E1B85BBF300F64A07 /* PG_sample03.jpg */; };
+		89407A1A1B8AA77800F64A07 /* libturbojpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89407A191B8AA77800F64A07 /* libturbojpeg.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,12 @@
 		89407A081B85B5B200F64A07 /* PG_sample01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PG_sample01.jpg; sourceTree = "<group>"; };
 		89407A0A1B85B90500F64A07 /* PG_sample02.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PG_sample02.jpg; sourceTree = "<group>"; };
 		89407A0E1B85BBF300F64A07 /* PG_sample03.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = PG_sample03.jpg; sourceTree = "<group>"; };
+		89407A131B8AA77800F64A07 /* jconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jconfig.h; sourceTree = "<group>"; };
+		89407A141B8AA77800F64A07 /* jerror.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jerror.h; sourceTree = "<group>"; };
+		89407A151B8AA77800F64A07 /* jmorecfg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jmorecfg.h; sourceTree = "<group>"; };
+		89407A161B8AA77800F64A07 /* jpeglib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jpeglib.h; sourceTree = "<group>"; };
+		89407A171B8AA77800F64A07 /* turbojpeg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = turbojpeg.h; sourceTree = "<group>"; };
+		89407A191B8AA77800F64A07 /* libturbojpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libturbojpeg.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				89407A1A1B8AA77800F64A07 /* libturbojpeg.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +82,7 @@
 			children = (
 				89407A071B85B5A800F64A07 /* Images */,
 				892256DD1B85AE2500BB7C5A /* SRC */,
+				89407A101B8AA77800F64A07 /* Vendor */,
 				892256B61B85AE1200BB7C5A /* WDProgressionImageLoader */,
 				892256D01B85AE1200BB7C5A /* WDProgressionImageLoaderTests */,
 				892256B51B85AE1200BB7C5A /* Products */,
@@ -147,6 +156,43 @@
 				89407A0E1B85BBF300F64A07 /* PG_sample03.jpg */,
 			);
 			name = Images;
+			sourceTree = "<group>";
+		};
+		89407A101B8AA77800F64A07 /* Vendor */ = {
+			isa = PBXGroup;
+			children = (
+				89407A111B8AA77800F64A07 /* libjpeg-turbo */,
+			);
+			path = Vendor;
+			sourceTree = "<group>";
+		};
+		89407A111B8AA77800F64A07 /* libjpeg-turbo */ = {
+			isa = PBXGroup;
+			children = (
+				89407A121B8AA77800F64A07 /* include */,
+				89407A181B8AA77800F64A07 /* lib */,
+			);
+			path = "libjpeg-turbo";
+			sourceTree = "<group>";
+		};
+		89407A121B8AA77800F64A07 /* include */ = {
+			isa = PBXGroup;
+			children = (
+				89407A131B8AA77800F64A07 /* jconfig.h */,
+				89407A141B8AA77800F64A07 /* jerror.h */,
+				89407A151B8AA77800F64A07 /* jmorecfg.h */,
+				89407A161B8AA77800F64A07 /* jpeglib.h */,
+				89407A171B8AA77800F64A07 /* turbojpeg.h */,
+			);
+			path = include;
+			sourceTree = "<group>";
+		};
+		89407A181B8AA77800F64A07 /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				89407A191B8AA77800F64A07 /* libturbojpeg.a */,
+			);
+			path = lib;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -379,8 +425,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Vendor/libjpeg-turbo/include",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = WDProgressionImageLoader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor/libjpeg-turbo/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -389,8 +444,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)/Vendor/libjpeg-turbo/include",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
 				INFOPLIST_FILE = WDProgressionImageLoader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Vendor/libjpeg-turbo/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
