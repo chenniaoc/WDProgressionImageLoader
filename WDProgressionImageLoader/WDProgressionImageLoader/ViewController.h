@@ -17,7 +17,6 @@
 
 @property(nonatomic, assign) IBOutlet WDProgressiveImageView *pgImageView;
 
-
 @property(nonatomic, assign) IBOutlet WDProgressiveImageView *remoteImageView;
 
 @property(nonatomic, assign) IBOutlet WDProgressiveImageView *wdShopImageView;
@@ -27,6 +26,8 @@
 @property(nonatomic, assign) IBOutlet WDProgressiveImageView *remoteImageView1;
 
 @property(nonatomic, assign) IBOutlet WDProgressiveImageView *remoteImageView2;
+
+@property (nonatomic, strong) IBOutlet UIButton *gotoTableView;
 
 
 @end

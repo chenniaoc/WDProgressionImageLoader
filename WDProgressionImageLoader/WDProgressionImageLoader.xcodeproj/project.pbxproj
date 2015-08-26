@@ -20,6 +20,7 @@
 		89407A0F1B85BBF300F64A07 /* PG_sample03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 89407A0E1B85BBF300F64A07 /* PG_sample03.jpg */; };
 		89407A1A1B8AA77800F64A07 /* libturbojpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89407A191B8AA77800F64A07 /* libturbojpeg.a */; };
 		898F56341B8C77E600D88F36 /* WDProgressiveImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 898F56331B8C77E600D88F36 /* WDProgressiveImageView.m */; };
+		898F56371B8DAC2300D88F36 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 898F56361B8DAC2300D88F36 /* TableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +60,8 @@
 		89407A191B8AA77800F64A07 /* libturbojpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libturbojpeg.a; sourceTree = "<group>"; };
 		898F56321B8C77E600D88F36 /* WDProgressiveImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDProgressiveImageView.h; sourceTree = "<group>"; };
 		898F56331B8C77E600D88F36 /* WDProgressiveImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDProgressiveImageView.m; sourceTree = "<group>"; };
+		898F56351B8DAC2300D88F36 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		898F56361B8DAC2300D88F36 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +115,8 @@
 				892256C41B85AE1200BB7C5A /* Images.xcassets */,
 				892256C61B85AE1200BB7C5A /* LaunchScreen.xib */,
 				892256B71B85AE1200BB7C5A /* Supporting Files */,
+				898F56351B8DAC2300D88F36 /* TableViewController.h */,
+				898F56361B8DAC2300D88F36 /* TableViewController.m */,
 			);
 			path = WDProgressionImageLoader;
 			sourceTree = "<group>";
@@ -304,6 +309,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				898F56341B8C77E600D88F36 /* WDProgressiveImageView.m in Sources */,
+				898F56371B8DAC2300D88F36 /* TableViewController.m in Sources */,
 				892256C01B85AE1200BB7C5A /* ViewController.m in Sources */,
 				89407A061B85B04B00F64A07 /* ImageUtil.c in Sources */,
 				892256BD1B85AE1200BB7C5A /* AppDelegate.m in Sources */,

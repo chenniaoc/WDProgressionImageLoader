@@ -140,6 +140,11 @@ static NSOperationQueue *kWDProgressiveOperationDownloadQueue;
 {
     if (_connection != nil) {
         // maybe loading or failed, need retry if failed
+        
+        [_connection cancel];
+        self.image = nil;
+        
+        
     }
     
     NSURL *reqURL = [[NSURL alloc] initWithString:url];

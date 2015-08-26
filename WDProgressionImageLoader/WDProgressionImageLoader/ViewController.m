@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import <ImageIO/ImageIO.h>
+#import "TableViewController.h"
 
 @interface ViewController ()
 
@@ -146,6 +147,15 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (IBAction)gotoTableView:(id)sender
+{
+    TableViewController *tvc = [[TableViewController alloc] init];
+    
+    [self presentViewController:tvc animated:YES completion:^{
+        
+    }];
 }
 
 @end
