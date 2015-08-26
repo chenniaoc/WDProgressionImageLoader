@@ -19,6 +19,7 @@
 		89407A0B1B85B90500F64A07 /* PG_sample02.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 89407A0A1B85B90500F64A07 /* PG_sample02.jpg */; };
 		89407A0F1B85BBF300F64A07 /* PG_sample03.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 89407A0E1B85BBF300F64A07 /* PG_sample03.jpg */; };
 		89407A1A1B8AA77800F64A07 /* libturbojpeg.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 89407A191B8AA77800F64A07 /* libturbojpeg.a */; };
+		898F56341B8C77E600D88F36 /* WDProgressiveImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 898F56331B8C77E600D88F36 /* WDProgressiveImageView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,8 @@
 		89407A161B8AA77800F64A07 /* jpeglib.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jpeglib.h; sourceTree = "<group>"; };
 		89407A171B8AA77800F64A07 /* turbojpeg.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = turbojpeg.h; sourceTree = "<group>"; };
 		89407A191B8AA77800F64A07 /* libturbojpeg.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libturbojpeg.a; sourceTree = "<group>"; };
+		898F56321B8C77E600D88F36 /* WDProgressiveImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WDProgressiveImageView.h; sourceTree = "<group>"; };
+		898F56331B8C77E600D88F36 /* WDProgressiveImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WDProgressiveImageView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +147,8 @@
 			children = (
 				89407A041B85B04B00F64A07 /* ImageUtil.c */,
 				89407A051B85B04B00F64A07 /* ImageUtil.h */,
+				898F56321B8C77E600D88F36 /* WDProgressiveImageView.h */,
+				898F56331B8C77E600D88F36 /* WDProgressiveImageView.m */,
 			);
 			path = SRC;
 			sourceTree = "<group>";
@@ -298,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				898F56341B8C77E600D88F36 /* WDProgressiveImageView.m in Sources */,
 				892256C01B85AE1200BB7C5A /* ViewController.m in Sources */,
 				89407A061B85B04B00F64A07 /* ImageUtil.c in Sources */,
 				892256BD1B85AE1200BB7C5A /* AppDelegate.m in Sources */,

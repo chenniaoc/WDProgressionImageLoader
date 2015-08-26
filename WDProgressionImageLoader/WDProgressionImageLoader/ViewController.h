@@ -9,10 +9,24 @@
 #import <UIKit/UIKit.h>
 
 #import "ImageUtil.h"
+#import "WDProgressiveImageView.h"
 
 #define TEST_JPEG_PROGRESSIVE_URL @"";
 
 @interface ViewController : UIViewController
+
+@property(nonatomic, assign) IBOutlet WDProgressiveImageView *pgImageView;
+
+
+@property(nonatomic, assign) IBOutlet WDProgressiveImageView *remoteImageView;
+
+@property(nonatomic, assign) IBOutlet WDProgressiveImageView *wdShopImageView;
+
+@property(nonatomic, assign) IBOutlet WDProgressiveImageView *wdGoodsImageView;
+
+@property(nonatomic, assign) IBOutlet WDProgressiveImageView *remoteImageView1;
+
+@property(nonatomic, assign) IBOutlet WDProgressiveImageView *remoteImageView2;
 
 
 @end
